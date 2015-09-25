@@ -14,16 +14,4 @@ blocJamsModule.config(function($stateProvider, $locationProvider) {
          templateUrl: '/templates/album.html'
      });
     
-    $stateProvider.state('collection', {
-         url: '/collection',
-         controller: 'Collection.controller',
-         templateUrl: '/templates/collection.html'
-     });
-    
-    $stateProvider.state('landing', {
-         url: '/landing',
-         controller: 'Collection.landing',
-         templateUrl: '/templates/landing.html'
-     });
-    
 });
