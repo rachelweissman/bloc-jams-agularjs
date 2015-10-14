@@ -1,3 +1,14 @@
  <section class="album-covers container">
-            <div class="clearfix"></div>
+            <div class="clearfix">
+              <table>
+                  <tr ng-repeat="listing in allAlbumsSpecific.album">
+                      <td>{{ $index + 1 }}.</td>
+                      <td><em>{{ album.name }}</em></td>
+                      <td><em>{{ album.label }}</em></td>
+                      <td><em>{{ album.year }}</em></td>
+                      <td>{{ album.albumArtUrl }}</td>
+                      <td>{{ listing.songs }}</td>
+                  </tr>
+              </table>
+          </div>
 </section>

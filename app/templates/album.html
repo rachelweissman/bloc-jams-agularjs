@@ -11,11 +11,14 @@
              </section>
              <table class="album-view-song-list">
                 <thead>
-                   <tr class="album-view-song-item">
-                     
+                   <tr class="album-view-song-item" ng-repeat="listing in albumScope.songRow">
+                         <td>{{ $index + 1 }}.</td>
+                         <td><em>{{ songRow.songNumber }}</em></td>
+                         <td><em>{{ songRow.songName }}</em></td>
+                         <td> {{ songRow.songLength }} mins</td>
              </table>
          </main>
-         
+
              <section class="player-bar">
              <div class="container">
                  <div class="player-bar-control-group left-controls">
