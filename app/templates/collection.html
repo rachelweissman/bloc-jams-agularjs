@@ -1,3 +1,33 @@
- <section class="album-covers container">
-            <div class="clearfix"></div>
+<section class="album-covers container">
+            <div class="clearfix">
+              <table>
+                  <tr ng-repeat="listing in allAlbums.albumPicasso">
+                      <td>{{ $index + 1 }}.</td>
+                      <td><em>{{ albumPicasso.name }}</em></td>
+                      <td><em>{{ albumPicasso.artist }}</em></td>
+                      <td><em>{{ albumPicasso.label }}</em></td>
+                      <td><em>{{ albumPicasso.year }}</em></td>
+                      <td>{{ albumPicasso.albumArtUrl }}</td>
+                      <td>{{ albumPicasso.songs }}</td>
+                  </tr>
+                  <tr ng-repeat="listing in allAlbums.albumMarconi">
+                      <td>{{ $index + 1 }}.</td>
+                      <td><em>{{ albumMarconi.name }}</em></td>
+                      <td><em>{{ albumMarconi.artist }}</em></td>
+                      <td><em>{{ albumMarconi.label }}</em></td>
+                      <td><em>{{ albumMarconi.year }}</em></td>
+                      <td>{{ albumMarconi.albumArtUrl }}</td>
+                      <td>{{ albumMarconi.songs }}</td>
+                  </tr>
+                  <tr ng-repeat="listing in allAlbums.tameImpala">
+                      <td>{{ $index + 1 }}.</td>
+                      <td><em>{{ tameImpala.name }}</em></td>
+                      <td><em>{{ tameImpala.artist }}</em></td>
+                      <td><em>{{ tameImpala.label }}</em></td>
+                      <td><em>{{ tameImpala.year }}</em></td>
+                      <td>{{ tameImpala.albumArtUrl }}</td>
+                      <td>{{ tameImpala.songs }}</td>
+                  </tr>
+              </table>
+          </div>
 </section>

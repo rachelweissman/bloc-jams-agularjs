@@ -1,4 +1,4 @@
-         <main class="album-view container narrow">
+<main class="album-view container narrow">
              <section class="clearfix">
                  <div class="column half">
                      <img src="assets/images/album_covers/01.png" class="album-cover-art">
@@ -11,11 +11,14 @@
              </section>
              <table class="album-view-song-list">
                 <thead>
-                   <tr class="album-view-song-item">
-                     
+                   <tr class="album-view-song-item" ng-repeat="listing in albumPicasso.songs">
+                         <td>{{ $index + 1 }}.</td>
+                         <td><em>{{ songs.name }}</em></td>
+                         <td><em>{{ songs.length }}</em></td>
+                         <td> {{ songs.audioUrl }} </td>
              </table>
          </main>
-         
+
              <section class="player-bar">
              <div class="container">
                  <div class="player-bar-control-group left-controls">
