@@ -1,3 +1,25 @@
- <section class="album-covers container">
-            <div class="clearfix"></div>
+<section class="album-covers container">
+  <div class="clearfix" ng-controller="CollectionController">
+    <!-- Repeating template container -->
+    <div class="collection-album-container column fourth" ng-repeat="album in albums track by $index">
+      <!-- Album art image / Link to album page -->
+      <!-- <a ui-sref="album" src="setCurrentAlbum(album.artist)">
+        <img ng-src="{{album.albumArtUrl}}">
+      </a> -->
+      <a ui-sref="album"><img src="{{ album.albumArtUrl }}"></a>
+      <!-- <div class="collection-album-info caption" ng-click="setCurrentAlbum(album.artist)"> -->
+      <div class="collection-album-info caption">
+        <p>
+
+          <!-- Album Name / Link to album page -->
+          <a class="album-name" ui-sref="album">{{ album.name }}</a>
+          <br>
+          <!-- Artist Name / Link to album page -->
+          <a ui-sref="album">{{ album.artist }}</a>
+          <br>
+          <!-- Song File List Length -->
+          {{album.song.length}}
+        </p>
+      </div>
+    </div>
 </section>
