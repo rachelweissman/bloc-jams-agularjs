@@ -1,3 +1,37 @@
+<!-- <section class="album-covers container">
+    <div class="clearfix">
+        <div class="collection-album-container column fourth" ng-repeat="album in albums track by $index">
+            <img ui-sref="album" ng-src="{{album.albumArtUrl}}">
+            <! <img ng-click="select_album($index)" ng-src="{{album.albumArtUrl}}">
+            <div class="collection-album-info caption">
+                <p> -->
+                  <!-- a -->
+                    <!-- <a class="album-name" ui-sref="album">{{album.name}}</a> -->
+                    <!-- <a class="album-name" ng-click="select_album($index)">{{album.name}}</a>
+                    <br>
+                    <a ui-sref="album">{{album.artist}}</a>
+                    <br> -->
+                    <!-- {{album.songs.length}} songs -->
+                    <!-- <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</section> -->
+
 <section class="album-covers container">
-           <div class="clearfix"></div>
+    <div class="clearfix">
+        <div class="collection-album-container column fourth" ng-repeat="album in albums track by $index">
+            <img ui-sref="album({id: album.id})" ng-src="{{album.albumArtUrl}}">
+            <div class="collection-album-info caption">
+                <p>
+                    <a class="album-name" ui-sref="album({id: album.id})">{{album.name}}</a>
+                    <br>
+                    <a ui-sref="album({id: album.id})">{{album.artist}}</a>
+                    <br>
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
 </section>

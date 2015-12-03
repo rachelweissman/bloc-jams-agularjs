@@ -1,55 +1,60 @@
-         <main class="album-view container narrow">
-             <section class="clearfix">
-                 <div class="column half">
-                     <img src="assets/images/album_covers/01.png" class="album-cover-art">
-                 </div>
-                 <div class="album-view-details column half">
-                     <h2 class="album-view-title">The Colors</h2>
-                     <h3 class="album-view-artist">Pablo Picasso</h3>
-                     <h5 class="album-view-release-info">1909 Spanish Records</h5>
-                 </div>
-             </section>
-             <table class="album-view-song-list">
-                <thead>
-                   <tr class="album-view-song-item">
-                     
-             </table>
-         </main>
-         
-             <section class="player-bar">
-             <div class="container">
-                 <div class="player-bar-control-group left-controls">
-                     <a class="previous">
-                        <span class="ion-skip-backward"></span>
-                     </a>
-                     <a class="play-pause">
-                        <span class="ion-play"></span>
-                     </a>
-                     <a class="next">
-                        <span class="ion-skip-forward"></span>
-                     </a>
-                 </div>
-                 <div class="player-bar-control-group currently-playing">
-                     <h2 class="song-name"></h2>
-                     <h2 class="artist-song-mobile"></h2>
-                     <div class="seek-control">
-                         <div class="seek-bar">
-                             <div class="fill"></div>
-                             <div class="thumb"></div>
-                         </div>
-                         <div class="current-time"></div>
-                         <div class="total-time"></div>
-                     </div>
-                     <h3 class="artist-name"></h3>
-                 </div>
-                 <div class="player-bar-control-group right-controls">
-                    <div clas="volume">
-                        <span class="ion-volume-high"></span>
-                        <div class="seek-bar">
-                            <div class="fill"></div>
-                            <div class="thumb"></div>
-                        </div>
-                    </div>
-                 </div>
-             </div>
-         </section>
+<section>
+<main class="album-view container narrow">
+    <section class="clearfix">
+        <div class="column half">
+            <!-- <img src="/assets/images/album_covers/01.png" class="album-cover-art"> -->
+            <img class="album-cover-art" ng-click="switchAlbum($stateParams.id)" ng-src="{{album.albumArtUrl}}">
+        </div>
+        <div class="album-view-details column half">
+            <h2 class="album-view-title">{{album.name}}</h2>
+            <h3 class="album-view-artist">{{album.artist}}</h3>
+            <h5 class="album-view-release-info">{{album.year}} - {{album.label}}</h5>
+        </div>
+    </section>
+    <table class="album-view-song-list">
+        <tr class="album-view-song-item" ng-repeat="song in album.songs" ng-mouseenter="hover($index)" ng-mouseleave="offHover($index)">
+            <td class="song-item-number" data-song-number="{{$index}}">
+                <span ng-switch="songState($index)">
+                    <span ng-switch-default>{{$index + 1}}</span>
+                    <span ng-switch-when="hovered"><a class="album-song-button"><span class="ion-play" ng-click="playSong($index)"></span></a></span>
+                    <span ng-switch-when="playing"><a class="album-song-button"><span class="ion-pause" ng-click="pauseSong()"></span></a></span>
+                </span>
+            </td>
+            <td class="song-item-title">{{song.name}}</td>
+            <td class="song-item-duration">{{song.length}}</td>
+        </tr>
+    </table>
+</main>
+<section class="player-bar">
+    <div class="container">
+        <div class="player-bar-control-group left-controls">
+            <a class="previous">
+                <span class="ion-skip-backward" ng-click="previous()"></span>
+            </a>
+            <a class="play-pause">
+                <span class="ion-play" ng-hide="this.isPlaying" ng-click="playSong(index || 0)"></span>
+                <span class="ion-pause" ng-show="this.isPlaying" ng-click="pauseSong()"></span>
+            </a>
+            <a class="next">
+                <span class="ion-skip-forward" ng-click="next()"></span>
+            </a>
+        </div>
+        <div class="player-bar-control-group currently-playing">
+            <h2 class="song-name">{{songName}}</h2>
+            <h2 class="artist-song-mobile">{{songName}} - {{artist}}</h2>
+            <div class="seek-control">
+                <slider class="seeker" prog="prog"></slider>
+                <div class="current-time">{{currentTime}}</div>
+                <div class="total-time">{{totalTime}}</div>
+            </div>
+            <h3 class="artist-name">{{artist}}</h3>
+        </div>
+        <div class="player-bar-control-group right-controls">
+            <div class="volume">
+                <span class="ion-volume-high"></span>
+                <slider class="volume" vol="vol"></slider>
+            </div>
+        </div>
+    </div>
+</section>
+</section>
